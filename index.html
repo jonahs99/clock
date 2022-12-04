@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>clock</title>
+        <style>
+html {
+    font-family: monospace;
+    font-size: 128px;
+    font-weight: 800;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: grid;
+    color: #333;
+}
+
+#timer0 {
+    transform: rotate(0.5turn);
+}
+
+p {
+    pointer-events: none;
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    background: #eee;
+    display: grid;
+    place-items: center;
+}
+
+.running {
+    background: #ffdb58;
+}
+
+.low {
+    background: #fac3c9;
+}
+
+.running.low {
+    background: #f47c8b;
+}
+        </style>
+    </head>
+
+    <body>
+        <section id="timer0" class="stopped"><p>0.0</p></section>
+        <section id="timer1" class="stopped"><p>0.0</p></section>
+        <script src="main.js" type="module"></script>
+    </body>
+
+</html>
+
