@@ -1,5 +1,12 @@
-const init_millis = 300 * 1000
-const inc_millis = 10 * 1000
+const [init_millis, inc_millis] = (() => {
+    if (!window.location.hash) return [300_000, 10_000]
+    const nums = window.location.hash.slice(1)
+        .split('+')
+        .map((s) => parseInt(s) * 1000)
+        .map((x) => isNaN(x) ? 0 : x)
+    if (nums.length < 2) nums.push(0)
+    return nums.slice(0, 2)
+})()
 
 const low_millis = 20 * 1000
 const beep_millis = 11 * 1000
