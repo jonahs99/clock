@@ -1,12 +1,14 @@
 const [init_millis, inc_millis] = (() => {
-    if (!window.location.hash) return [300_000, 10_000]
-    const nums = window.location.hash.slice(1)
+    if (!location.hash) return [300_000, 10_000]
+    const nums = location.hash.slice(1)
         .split('+')
         .map((s) => parseInt(s) * 1000)
         .map((x) => isNaN(x) ? 0 : x)
     if (nums.length < 2) nums.push(0)
     return nums.slice(0, 2)
 })()
+
+window.addEventListener('hashchange', () => location.reload())
 
 const low_millis = 20 * 1000
 const beep_millis = 11 * 1000
